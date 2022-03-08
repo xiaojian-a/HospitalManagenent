@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="/icon">
+    <file>zfb.png</file>
+    <file>vx.png</file>
+  </qresource>
+</RCC>
