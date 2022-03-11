@@ -400,7 +400,7 @@ class Ui_MainWindow(object):
             self.textBrowser_3.moveCursor(self.cursor.End)  # 光标移到最后，这样就会自动显示出来
             QtWidgets.QApplication.processEvents()  # 一定加上这个功能，不然有卡顿
 
-            conn = sqlite3.connect(rf"{self.pathFile}\Jian\hospitaFile.db")
+            conn = sqlite3.connect(rf"{self.pathFile}\Jian\{admin}hospitaFile.db")
             c = conn.cursor()
             sql = '''INSERT INTO JIAN (ID, NAME,AGE, SEX, USERID, KESI, BINLI) VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s')''' % (
             strUserId, name, age, sex, user, admin, " ")

@@ -510,7 +510,7 @@ class Ui_MainWindow(object):
         else:
             Win(0).show_message("提示", "请正确输入")
 
-        time.sleep(5)
+        time.sleep(1)
         self.lineEdit.clear()
         self.lineEdit_2.clear()
         self.lineEdit_3.clear()

@@ -14,12 +14,12 @@ from PyQt5.QtCore import QStringListModel
 import scr.error as error
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.Qt import QApplication, QMainWindow
-import sys
-from scr.mkdir import file
 
 
-class Ui_MainWindow(object):
-    def __init__(self):
+class Ui_MainWindow(QMainWindow):
+    def __init__(self, sq):
+        super().__init__()
+        self.sq = sq
         self.str1 = None
         self.list1 = []
         self.text = None
@@ -310,7 +310,7 @@ class Ui_MainWindow(object):
                 c.close()
                 break
 
-            conn = sqlite3.connect(rf"{self.pathFile}\Jian\hospitaFile.db")
+            conn = sqlite3.connect(rf"{self.pathFile}\Jian\{self.sq}")
             c = conn.cursor()
             li = c.execute("select * from JIAN")
             list1 = li.fetchone()
@@ -334,7 +334,7 @@ class Ui_MainWindow(object):
             self.slm.setStringList(self.list1)
             self.listView.setModel(self.slm)
             self.text = self.textBrowser_5.toPlainText()
-            conn = sqlite3.connect(rf"{self.pathFile}\Jian\hospitaFile.db")
+            conn = sqlite3.connect(rf"{self.pathFile}\Jian\{self.sq}")
             c = conn.cursor()
             sql = """UPDATE JIAN set BINLI = '%s' where  ID = '%s'""" % (self.text, self.id)
             c.execute(sql)
@@ -358,13 +358,3 @@ class Ui_MainWindow(object):
         except Exception as f:
             pass
 
-
-if __name__ == '__main__':
-    file()
-    app = QApplication(sys.argv)
-    m = QMainWindow()
-    # 设置窗口尺寸
-    Ui_MainWindow().setupUi(m)
-    # 加载控件
-    m.show()
-    sys.exit(app.exec_())
