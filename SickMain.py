@@ -21,7 +21,7 @@ from scr.error import Win
 
 class Ui_MainWindow(object):
     def __init__(self):
-        self.app = Win()
+        self.app = Win(0)
         self.num = 0
         self.listFile = []
         self.pathFile = os.path.expanduser("~")
@@ -203,6 +203,17 @@ class Ui_MainWindow(object):
         self.comboBox_4 = QtWidgets.QComboBox(self.page)
         self.comboBox_4.setGeometry(QtCore.QRect(140, 220, 230, 30))
         self.comboBox_4.setObjectName("comboBox_4")
+        self.comboBox_4.addItem("")
+        self.comboBox_4.addItem("")
+        self.comboBox_4.addItem("")
+        self.comboBox_4.addItem("")
+        self.comboBox_4.addItem("")
+        self.comboBox_4.addItem("")
+        self.comboBox_4.addItem("")
+        self.comboBox_4.addItem("")
+        self.comboBox_4.addItem("")
+        self.comboBox_4.addItem("")
+        self.comboBox_4.addItem("")
         self.textBrowser_4 = QtWidgets.QTextBrowser(self.page)
         self.textBrowser_4.setGeometry(QtCore.QRect(140, 340, 230, 30))
         self.textBrowser_4.setObjectName("textBrowser_4")
@@ -450,11 +461,13 @@ class Ui_MainWindow(object):
                     self.textBrowser_11.append("医嘱：" + i[6] + "\n药方：" + i[7])
                     self.textEdit_7.clear()
                     self.textEdit_12.clear()
+                    c1.close()
                     break
             else:
-                Win().show_message("提示", "没有找到此患者")
+                Win(0).show_message("提示", "没有找到此患者")
                 self.textEdit_7.clear()
                 self.textEdit_12.clear()
+                c1.close()
 
 
     def delaFile(self, qModelIndex):
@@ -489,6 +502,17 @@ class Ui_MainWindow(object):
         self.label_19.setText(_translate("MainWindow", "前面人数："))
         self.comboBox_3.setItemText(0, _translate("MainWindow", "男"))
         self.comboBox_3.setItemText(1, _translate("MainWindow", "女"))
+        self.comboBox_4.setItemText(0, _translate("MainWindow", "内科"))
+        self.comboBox_4.setItemText(1, _translate("MainWindow", "外科"))
+        self.comboBox_4.setItemText(2, _translate("MainWindow", "脑科"))
+        self.comboBox_4.setItemText(3, _translate("MainWindow", "儿科"))
+        self.comboBox_4.setItemText(4, _translate("MainWindow", "骨科"))
+        self.comboBox_4.setItemText(5, _translate("MainWindow", "口鼻科"))
+        self.comboBox_4.setItemText(6, _translate("MainWindow", "中医科"))
+        self.comboBox_4.setItemText(7, _translate("MainWindow", "妇产科"))
+        self.comboBox_4.setItemText(8, _translate("MainWindow", "男科"))
+        self.comboBox_4.setItemText(9, _translate("MainWindow", "泌尿科"))
+        self.comboBox_4.setItemText(10, _translate("MainWindow", "美容科"))
         self.label_17.setText(_translate("MainWindow", "病历号："))
         self.label_24.setText(_translate("MainWindow", "姓名："))
 

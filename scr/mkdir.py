@@ -53,3 +53,31 @@ def file():
                                                  NUM             TEXT  NOT NULL);''')
         conn.commit()
         conn.close()
+
+        # conn = sqlite3.connect(rf"{pathFile}\Jian\hospitaFileWc.db")
+        # c = conn.cursor()
+        # c.execute('''CREATE TABLE JIAN
+        #                                                 (ID TEXT PRIMARY KEY   NOT NULL,
+        #                                                  NAME           TEXT  NOT NULL,
+        #                                                  AGE            TEXT  NOT NULL,
+        #                                                  SEX            TEXT   NOT NULL,
+        #                                                  USERID         TEXT  NOT NULL,
+        #                                                  KESI           TEXT  NOT NULL,
+        #                                                  BINLI           TEXT  NOT NULL,
+        #                                                  YP             TEXT  NOT NULL);''')
+        # conn.commit()
+        # conn.close()
+
+        conn = sqlite3.connect(rf"{pathFile}\Jian\doctorFile.db")
+        c = conn.cursor()
+        c.execute('''CREATE TABLE JIAN
+                                                        (ID TEXT PRIMARY KEY   NOT NULL,
+                                                         NAME           TEXT  NOT NULL,
+                                                         SEX            TEXT  NOT NULL,
+                                                         USERID         TEXT   NOT NULL,
+                                                         KS             TEXT  NOT NULL,
+                                                         WAGE           TEXT  NOT NULL,
+                                                         XL             TEXT  NOT NULL,
+                                                         DH             TEXT  NOT NULL);''')
+        conn.commit()
+        conn.close()

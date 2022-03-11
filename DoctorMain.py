@@ -327,7 +327,7 @@ class Ui_MainWindow(object):
 
 
         except Exception:
-            error.Win().show_message("提示", "没有病人")
+            error.Win(0).show_message("提示", "没有病人")
 
     def btn4_fun(self):
         try:
@@ -354,7 +354,7 @@ class Ui_MainWindow(object):
             c0.execute(sql)
             conn0.commit()
             conn0.close()
-            error.Win().show_message("提示", "提交成功")
+            error.Win(0).show_message("提示", "提交成功")
         except Exception as f:
             pass
 
