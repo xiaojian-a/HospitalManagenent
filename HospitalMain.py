@@ -599,14 +599,17 @@ class Ui_MainWindow(object):
         self.listView_2.setModel(self.slm)
 
     def pub_ff6(self):
-        conn = sqlite3.connect(rf"{self.pathFile}\Jian\doctorFile.db")
-        c = conn.cursor()
-        sql = """UPDATE JIAN set KS = '%s' where  ID = '%s'""" % (self.str6, self.str5[0:16])
-        c.execute(sql)
-        conn.commit()
-        c.close()
-        self.textBrowser.clear()
-        self.textBrowser.append(self.str5[0:20] + self.str6)
+        try:
+            conn = sqlite3.connect(rf"{self.pathFile}\Jian\doctorFile.db")
+            c = conn.cursor()
+            sql = """UPDATE JIAN set KS = '%s' where  ID = '%s'""" % (self.str6, self.str5[0:16])
+            c.execute(sql)
+            conn.commit()
+            c.close()
+            self.textBrowser.clear()
+            self.textBrowser.append(self.str5[0:20] + self.str6)
+        except Exception:
+            pass
 
     def delaFile1(self, qModelIndex):
         str1 = self.list1[qModelIndex.row()]
